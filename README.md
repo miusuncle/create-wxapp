@@ -1,6 +1,6 @@
 # Create Wechat App
 
-## Install
+## Installation
 
 ```
 $ npm i -gd create-wxapp
@@ -11,7 +11,7 @@ $ npm i -gd create-wxapp
 ```
 $ create-wxapp init
 $ cd <project-folder>
-$ npm install -d
+$ npm i -d
 ```
 
 ## Commands

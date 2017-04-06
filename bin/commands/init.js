@@ -20,10 +20,10 @@ exports.run = co.wrap(function *(argv, clt) {
 			projectName = yield clt.getInput('请输入小程序项目名称: ');
 			projectName = projectName.trim();
 
-			if (/^[a-z]{3,8}$/.test(projectName)) {
+			if (/^[a-z]{3,30}$/.test(projectName)) {
 				break;
 			} else {
-				console.log('项目名称输入错误，请重新输入（格式：3 ~ 8 位字母）！\n');
+				console.log('项目名称输入错误，请重新输入（格式：3 ~ 30 位字母）！\n');
 			}
 		}
 
@@ -113,7 +113,7 @@ Well done，项目初始化成功!!
 
 1) 安装构建依赖
 $ cd ${projectName}
-$ npm install -d
+$ npm i -d
 
 2) 执行构建
 $ npm run dev
