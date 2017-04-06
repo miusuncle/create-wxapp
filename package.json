@@ -1,0 +1,30 @@
+{
+  "name": "create-wxapp",
+  "version": "0.0.0",
+  "description": "Create and write wechat-app with ease.",
+  "main": "bin/create-wxapp.js",
+  "bin": {
+    "create-wxapp": "bin/create-wxapp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miusuncle/create-wxapp.git"
+  },
+  "keywords": [
+    "weapp",
+    "wxapp",
+    "wechat",
+    "app",
+    "scaffolding"
+  ],
+  "author": "miusuncle",
+  "license": "MIT",
+  "dependencies": {
+    "clt": "^0.1.1",
+    "co": "^4.6.0",
+    "es6-promisify": "^5.0.0",
+    "mkdirp": "^0.5.1",
+    "ncp2": "^2.1.0",
+    "through2": "^2.0.3"
+  }
+}
