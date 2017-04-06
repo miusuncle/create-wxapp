@@ -48,7 +48,7 @@ gulp.task('watch', () => build(() => {
 
 	Object.keys(config.filesPattern).forEach(assets => {
 		const files = resolve(config.src, config.filesPattern[assets]);
-		gulp.watch(files, [`build:${assets}`]);
+		$.watch(files, () => runSequence(`build:${assets}`));
 	});
 }));
 
