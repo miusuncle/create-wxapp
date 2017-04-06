@@ -20,7 +20,7 @@ exports.run = co.wrap(function *(argv, clt) {
 			projectName = yield clt.getInput('请输入小程序项目名称: ');
 			projectName = projectName.trim();
 
-			if (/^[a-z]{3,30}$/.test(projectName)) {
+			if (/^[-\w]{3,30}$/.test(projectName)) {
 				break;
 			} else {
 				console.log('项目名称输入错误，请重新输入（格式：3 ~ 30 位字母）！\n');
@@ -60,8 +60,12 @@ exports.run = co.wrap(function *(argv, clt) {
 			filter(target) {
 				target = target.split(/\\/).join('/');
 
+				if (target.includes('node_modules')) {
+					return false;
+				}
+
 				if (!integrateUnderscore) {
-					if (target.includes('vendor/underscore.js')) {
+					if (target.includes('src/vendor/underscore.js')) {
 						return false;
 					}
 				}
@@ -88,7 +92,7 @@ exports.run = co.wrap(function *(argv, clt) {
 								str = str.replace(`\t_,\n`, '');
 							}
 
-							if (filename.includes('/runner/config.js')) {
+							if (filename.includes('runner/config.js')) {
 								str = str.replace(`'_'`, '');
 							}
 						}
