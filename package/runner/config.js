@@ -16,7 +16,7 @@ module.exports = {
 		image: '**/*.{jpg,jpeg,png,gif,svg}',
 	},
 
-	globals: ['_', 'wxlib'],
+	globals: ['_'],
 
 	define: {
 		debug: [

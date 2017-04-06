@@ -6,7 +6,6 @@ const { readdir } = require('fs');
 const { join } = require('path');
 const { ncp } = require('ncp2');
 
-
 // `create-wxapp` init
 exports.run = co.wrap(function *(argv, clt) {
 	try {
@@ -85,12 +84,12 @@ exports.run = co.wrap(function *(argv, clt) {
 
 						if (!integrateUnderscore) {
 							if (filename.includes('src/globals.js')) {
-								str = str.replace(`const _ = require('./vendor/underscore');\n`, '');
+								str = str.replace(`\t_: require('./vendor/underscore'),\n`, '');
 								str = str.replace(`\t_,\n`, '');
 							}
 
 							if (filename.includes('/runner/config.js')) {
-								str = str.replace(`'_', `, '');
+								str = str.replace(`'_'`, '');
 							}
 						}
 
@@ -101,8 +100,24 @@ exports.run = co.wrap(function *(argv, clt) {
 			},
 		});
 
-		console.log('Well done~!');
+		console.log(done(projectName));
 	} catch (err) {
 		console.log(err);
 	}
 });
+
+const done = projectName => `
+Well done，项目初始化成功!!
+
+接下来，你可以进行如下操作：
+
+1) 安装构建依赖
+$ cd ${projectName}
+$ npm install -d
+
+2) 执行构建
+$ npm run dev
+
+3) 打开微信开发者工具，添加小程序项目，项目目录指定如下:
+${join(process.cwd(), projectName, 'debug')}
+`;
