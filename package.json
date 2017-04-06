@@ -1,6 +1,6 @@
 {
   "name": "create-wxapp",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Create and write wechat-app with ease.",
   "main": "bin/create-wxapp.js",
   "bin": {
