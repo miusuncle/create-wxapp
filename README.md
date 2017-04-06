@@ -11,7 +11,7 @@ $ npm i -gd create-wxapp
 ```
 $ create-wxapp init
 $ cd <project-folder>
-$ yarn install
+$ npm install -d
 ```
 
 ## Commands
