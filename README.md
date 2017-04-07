@@ -20,3 +20,7 @@ $ npm i -d
 - `npm run build-debug`
 - `npm run build-test`
 - `npm run build-release`
+
+## License
+
+[MIT](LICENSE)
