@@ -1,5 +1,7 @@
 # Create Wechat App
 
+[![NPM Version][npm-image]][npm-url]
+
 ## Installation
 
 ```
@@ -24,3 +26,6 @@ $ npm i -d
 ## License
 
 [MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/create-wxapp.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/create-wxapp
