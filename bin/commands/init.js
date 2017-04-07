@@ -60,12 +60,12 @@ exports.run = co.wrap(function *(argv, clt) {
 			filter(target) {
 				target = target.split(/\\/).join('/');
 
-				if (target.includes('node_modules')) {
+				if (target.includes('/package/node_modules')) {
 					return false;
 				}
 
 				if (!integrateUnderscore) {
-					if (target.includes('src/vendor/underscore.js')) {
+					if (target.includes('/package/src/vendor/underscore.js')) {
 						return false;
 					}
 				}
@@ -87,12 +87,12 @@ exports.run = co.wrap(function *(argv, clt) {
 						let str = chunk.toString('utf8');
 
 						if (!integrateUnderscore) {
-							if (filename.includes('src/globals.js')) {
+							if (filename.includes('/package/src/globals.js')) {
 								str = str.replace(`\t_: require('./vendor/underscore'),\n`, '');
 								str = str.replace(`\t_,\n`, '');
 							}
 
-							if (filename.includes('runner/config.js')) {
+							if (filename.includes('/package/runner/config.js')) {
 								str = str.replace(`'_'`, '');
 							}
 						}
