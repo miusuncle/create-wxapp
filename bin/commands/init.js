@@ -12,8 +12,11 @@ exports.run = co.wrap(function *(argv, clt) {
 		// 小程序项目名称
 		let projectName;
 
-		// 是否集成 underscore 类库到项目
+		// 是否集成 `underscore` 类库到项目
 		let integrateUnderscore = false;
+
+		// 是否注入全局的 `pify` 方法
+		let useGlobalPify = false;
 
 		// 提示：输入小程序项目名称
 		while (true) {
@@ -28,13 +31,26 @@ exports.run = co.wrap(function *(argv, clt) {
 			}
 		}
 
-		// 提示：是否集成 underscore 类库到项目
+		// 提示：是否集成 `underscore` 类库到项目
 		while (true) {
 			let answer = yield clt.getInput('是否集成 underscore 类库到项目？(Y/n) ');
 			answer = answer.trim();
 
 			if (['yes', 'no', 'Y', 'n'].includes(answer)) {
 				integrateUnderscore = ({ yes: true, no: false, Y: true, n: false })[answer];
+				break;
+			} else {
+				console.log('请输入 Y(yes) 或者 n(no)！\n');
+			}
+		}
+
+		// 提示：是否注入全局的 `pify` 方法
+		while (true) {
+			let answer = yield clt.getInput('是否注入全局的 pify 方法？(Y/n) ');
+			answer = answer.trim();
+
+			if (['yes', 'no', 'Y', 'n'].includes(answer)) {
+				useGlobalPify = ({ yes: true, no: false, Y: true, n: false })[answer];
 				break;
 			} else {
 				console.log('请输入 Y(yes) 或者 n(no)！\n');
@@ -89,12 +105,21 @@ exports.run = co.wrap(function *(argv, clt) {
 
 						if (!integrateUnderscore) {
 							if (filename.includes('/package/src/globals.js')) {
-								str = str.replace(`\t_: require('./vendor/underscore'),\n`, '');
-								str = str.replace(`\t_,\n`, '');
+								str = str.replace(`\n\t_: require('./vendor/underscore'),`, '');
 							}
 
 							if (filename.includes('/package/runner/config/default.js')) {
 								str = str.replace(`\t\t'_',\n`, '');
+							}
+						}
+
+						if (!useGlobalPify) {
+							if (filename.includes('/package/src/globals.js')) {
+								str = str.replace(`\n\nglobal.pify = require('./lib/wx-pify');`, '');
+							}
+
+							if (filename.includes('/package/runner/config/default.js')) {
+								str = str.replace(`\t\t'pify',\n`, '');
 							}
 						}
 
