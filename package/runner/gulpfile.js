@@ -64,7 +64,7 @@ gulp.task('build:js', () => {
 	// 注入 `regeneratorRuntime` 以支持 async/await 语法
 	// 注入 `babelHelpers`，这样 babel 转译时不会在每个 js 文件生成一份 helper 函数
 	const defaultGlobals = ['regeneratorRuntime', 'babelHelpers'];
-	const globals = defaultGlobals.concat(config.globals).join(', ');
+	const globals = defaultGlobals.concat(config.globals || []).join(', ');
 
 	const files = resolve(config.src, config.filesPattern.js);
 

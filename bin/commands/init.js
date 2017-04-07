@@ -17,10 +17,11 @@ exports.run = co.wrap(function *(argv, clt) {
 
 		// 提示：输入小程序项目名称
 		while (true) {
-			projectName = yield clt.getInput('请输入小程序项目名称: ');
-			projectName = projectName.trim();
+			let answer = yield clt.getInput('请输入小程序项目名称: ');
+			answer = answer.trim();
 
-			if (/^[-\w]{3,30}$/.test(projectName)) {
+			if (/^[-\w]{3,30}$/.test(answer)) {
+				projectName = answer;
 				break;
 			} else {
 				console.log('项目名称输入错误，请重新输入（格式：3 ~ 30 位字母）！\n');
@@ -29,14 +30,14 @@ exports.run = co.wrap(function *(argv, clt) {
 
 		// 提示：是否集成 underscore 类库到项目
 		while (true) {
-			let answer = yield clt.getInput('是否集成 underscore 类库到项目？(yes/no) ');
+			let answer = yield clt.getInput('是否集成 underscore 类库到项目？(Y/n) ');
 			answer = answer.trim();
 
-			if (['yes', 'no'].includes(answer)) {
-				integrateUnderscore = ({ yes: true, no: false})[answer];
+			if (['yes', 'no', 'Y', 'n'].includes(answer)) {
+				integrateUnderscore = ({ yes: true, no: false, Y: true, n: false })[answer];
 				break;
 			} else {
-				console.log('请输入 yes 或者 no！\n');
+				console.log('请输入 Y(yes) 或者 n(no)！\n');
 			}
 		}
 
