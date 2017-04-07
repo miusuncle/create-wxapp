@@ -8,3 +8,5 @@ module.exports = Object.assign(global, {
 	babelHelpers: require('./vendor/babel-helpers'),
 	_: require('./vendor/underscore'),
 });
+
+global.pify = require('./lib/wx-pify');
