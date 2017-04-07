@@ -16,19 +16,7 @@ module.exports = {
 		image: '**/*.{jpg,jpeg,png,gif,svg}',
 	},
 
-	globals: ['_'],
-
-	define: {
-		debug: [
-
-		],
-
-		test: [
-
-		],
-
-		release: [
-
-		],
-	},
+	globals: [
+		'_',
+	],
 };

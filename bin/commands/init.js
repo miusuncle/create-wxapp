@@ -93,8 +93,8 @@ exports.run = co.wrap(function *(argv, clt) {
 								str = str.replace(`\t_,\n`, '');
 							}
 
-							if (filename.includes('/package/runner/config.js')) {
-								str = str.replace(`'_'`, '');
+							if (filename.includes('/package/runner/config/default.js')) {
+								str = str.replace(`\t\t'_',\n`, '');
 							}
 						}
 
