@@ -131,7 +131,7 @@ gulp.task('build:json', () => {
 		})));
 
 	return replace(stream)
-		.pipe($.json5({ beautify: false }))
+		.pipe($.json5ToJson({ beautify: false }))
 		.pipe($.jsonValidator({ allowDuplicatedKeys: false }))
 		.pipe($.if(minify, $.jsonminify(), $.jsonFormat('\t')))
 		.pipe(gulp.dest(buildTarget));
