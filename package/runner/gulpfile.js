@@ -100,9 +100,11 @@ gulp.task('build:wxss', () => {
 	return gulp.src(files)
 		.pipe($.if(watchMode, $.changed(buildTarget)))
 		.pipe($.if(minify, $.cleanCss({
+			level: 0,
 			inline: ['none'],
 		})))
 		.pipe($.replace(/(@import)\s+url\((.+?)\)/g, '$1 "$2"'))
+		.pipe($.replace(/\/\*[^]*?\*\//g, ''))
 		.pipe(gulp.dest(buildTarget));
 });
 
@@ -114,7 +116,7 @@ gulp.task('build:wxml', () => {
 		.pipe($.if(minify, $.htmlmin({
 			collapseWhitespace: true,
 			removeComments: true,
-			html5: false,
+			html5: true,
 			keepClosingSlash: true,
 		})))
 		.pipe(gulp.dest(buildTarget));
