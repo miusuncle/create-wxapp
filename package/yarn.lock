@@ -1214,9 +1214,9 @@ gulp-json-validator@^1.1.0:
     json-dup-key-validator "^1.0.0"
     map-stream "0.0.6"
 
-gulp-json5-to-json@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/gulp-json5-to-json/-/gulp-json5-to-json-0.1.1.tgz#57957cbc1b78f547c128e674c3cbe1656f3444be"
+gulp-json5-to-json@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/gulp-json5-to-json/-/gulp-json5-to-json-0.2.1.tgz#4755dc1b859b973aabaa4bd04bbf2193423a06c3"
   dependencies:
     gulp-util "^3.0.8"
     json5 "0.2.0"
@@ -2182,8 +2182,8 @@ rc@^1.1.7:
     strip-json-comments "~2.0.1"
 
 readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.8.tgz#ad28b686f3554c73d39bc32347fa058356624705"
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.9.tgz#cf78ec6f4a6d1eb43d26488cac97f042e74b7fc8"
   dependencies:
     buffer-shims "~1.0.0"
     core-util-is "~1.0.0"
