@@ -146,7 +146,7 @@ $ cd ${projectName}
 $ npm i -d
 
 2) 执行构建
-$ npm run dev
+$ npm start
 
 3) 打开微信开发者工具，添加小程序项目，项目目录指定如下:
 ${join(process.cwd(), projectName, 'debug')}
