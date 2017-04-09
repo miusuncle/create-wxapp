@@ -41,7 +41,6 @@
 		"gulp-if": "^2.0.2",
 		"gulp-inject-string": "^1.1.0",
 		"gulp-json-format": "^1.0.0",
-		"gulp-json-validator": "^1.1.0",
 		"gulp-json5-to-json": "^0.2.1",
 		"gulp-jsonminify": "^1.0.0",
 		"gulp-load-plugins": "^1.5.0",
