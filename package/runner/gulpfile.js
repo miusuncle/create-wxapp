@@ -22,20 +22,23 @@ const sourcemaps = !!argv.sourcemaps;
 // 是否精简代码
 const minify = !!argv.minify;
 
-// 当前环境
-const env = argv.env || 'local';
-
-// 是否为监听状态
-let watchMode = false;
-
-// .babelrc 配置文件需要用到 `BABEL_ENV`
-process.env.BABEL_ENV = ({
+const ENV_MAP = {
 	local: 'development',
 	dev: 'development',
 	test: 'test',
 	preview: 'production',
 	production: 'production',
-})[env];
+};
+
+// 当前环境
+let env = [].concat(argv.env).pop();
+env = (env in ENV_MAP ? env : 'local');
+
+// .babelrc 配置文件需要用到 `BABEL_ENV`
+process.env.BABEL_ENV = ENV_MAP[env];
+
+// 是否为监听状态
+let watchMode = false;
 
 const build = done => runSequence('clean', ...[
 	'build:js',
