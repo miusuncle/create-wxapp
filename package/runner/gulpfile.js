@@ -113,6 +113,7 @@ gulp.task('build:wxml', () => {
 
 	return gulp.src(files)
 		.pipe($.if(watchMode, $.changed(buildTarget)))
+		.pipe($.if(watchMode, $.plumber()))
 		.pipe($.if(minify, $.htmlmin({
 			collapseWhitespace: true,
 			removeComments: true,
@@ -128,13 +129,13 @@ gulp.task('build:json', () => {
 	const stream = gulp.src(files)
 		.pipe($.if(watchMode, $.changed(buildTarget)))
 		.pipe($.if(watchMode, $.plumber(function (error) {
-			gutil.log(error.message);
+			const { log, colors } = gutil;
+			log(`${colors.cyan('Plumber')} ${colors.red('found unhandled error:')}\n ${colors.red('Error')} in plugin '${error.plugin}'\nMessage:\n    ${colors.red(error.message)}\n`);
 			this.emit('end');
 		})));
 
 	return replace(stream)
 		.pipe($.json5ToJson({ beautify: false }))
-		.pipe($.jsonValidator({ allowDuplicatedKeys: false }))
 		.pipe($.if(minify, $.jsonminify(), $.jsonFormat('\t')))
 		.pipe(gulp.dest(buildTarget));
 });
