@@ -2,6 +2,7 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Minimum Node.js Version][nodejs-image]][nodejs-url]
+[![License][license-image]][license-url]
 
 ## Installation
 
@@ -32,3 +33,5 @@ $ npm i -d
 [npm-url]: https://npmjs.org/package/create-wxapp
 [nodejs-image]: https://img.shields.io/badge/Node.js-%3E%3D%206.0-669B64.svg?style=flat-square
 [nodejs-url]: https://nodejs.org/
+[license-image]: https://img.shields.io/github/license/miusuncle/create-wxapp.svg?style=flat-square
+[license-url]: LICENSE
