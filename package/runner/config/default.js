@@ -5,6 +5,7 @@ module.exports = {
 	dist: {
 		debug: resolve('../dist/debug'),
 		test: resolve('../dist/test'),
+		preview: resolve('../dist/preview'),
 		release: resolve('../dist/release'),
 	},
 

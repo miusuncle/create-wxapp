@@ -1,12 +1,14 @@
 {
 	"scripts": {
-		"dev": "cd runner && gulp watch --target=debug --sourcemaps",
-		"build-debug": "cd runner && gulp build --target=debug",
-		"build-test": "cd runner && gulp build --target=test --minify",
-		"build-release": "cd runner && gulp build --target=release --minify",
-		"clean": "npm run clean-debug && npm run clean-test && npm run clean-release",
+		"start": "cd runner && gulp watch --target=debug --sourcemaps --env=local",
+		"build-debug": "cd runner && gulp build --target=debug --env=dev",
+		"build-test": "cd runner && gulp build --target=test --env=test",
+		"build-preview": "cd runner && gulp build --target=preview --minify --env=preview",
+		"build-release": "cd runner && gulp build --target=release --minify --env=production",
+		"clean": "npm run clean-debug && npm run clean-test && npm run clean-preview && npm run clean-release",
 		"clean-debug": "cd runner && gulp clean --target=debug",
 		"clean-test": "cd runner && gulp clean --target=test",
+		"clean-preview": "cd runner && gulp clean --target=preview",
 		"clean-release": "cd runner && gulp clean --target=release"
 	},
 	"devDependencies": {

@@ -10,9 +10,10 @@ const config = require('./config');
 // 构建源目录
 const buildSource = config.src;
 
+// 构建目标文件夹名
 const target = config.dist[argv.target] ? argv.target : 'debug';
 
-// 构建输出目录
+// 构建输出的绝对目录
 const buildTarget = config.dist[target];
 
 // 是否生成 sourcemaps
@@ -21,15 +22,20 @@ const sourcemaps = !!argv.sourcemaps;
 // 是否精简代码
 const minify = !!argv.minify;
 
+// 当前环境
+const env = argv.env || 'local';
+
 // 是否为监听状态
 let watchMode = false;
 
 // .babelrc 配置文件需要用到 `BABEL_ENV`
 process.env.BABEL_ENV = ({
-	debug: 'development',
+	local: 'development',
+	dev: 'development',
 	test: 'test',
-	release: 'production',
-})[target];
+	preview: 'production',
+	production: 'production',
+})[env];
 
 const build = done => runSequence('clean', ...[
 	'build:js',
@@ -39,7 +45,7 @@ const build = done => runSequence('clean', ...[
 	'build:image',
 ], done);
 
-const replace = stream => (config.define[target] || []).reduce((ret, [search, replacement]) => {
+const replace = stream => (config.define[env] || []).reduce((ret, [search, replacement]) => {
 	return ret.pipe($.replace(search, replacement, { skipBinary: true }));
 }, stream);
 

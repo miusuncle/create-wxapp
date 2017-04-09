@@ -20,9 +20,10 @@ $ npm i -d
 
 ## Commands
 
-- `npm run dev`
+- `npm start`
 - `npm run build-debug`
 - `npm run build-test`
+- `npm run build-preview`
 - `npm run build-release`
 
 ## License
