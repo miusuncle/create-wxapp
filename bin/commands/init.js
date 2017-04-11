@@ -12,7 +12,7 @@ exports.run = co.wrap(function *(argv, clt) {
 		// 小程序项目名称
 		let projectName;
 
-		// 是否集成 `underscore` 类库到项目
+		// 是否集成 `Underscore.js` 类库到项目
 		let integrateUnderscore = false;
 
 		// 是否注入全局的 `pify` 方法
@@ -31,9 +31,9 @@ exports.run = co.wrap(function *(argv, clt) {
 			}
 		}
 
-		// 提示：是否集成 `underscore` 类库到项目
+		// 提示：是否集成 `Underscore.js` 类库到项目
 		while (true) {
-			let answer = yield clt.getInput('是否集成 underscore 类库到项目？(Y/n) ');
+			let answer = yield clt.getInput('是否集成 Underscore.js 类库到项目？(Y/n) ');
 			answer = answer.trim();
 
 			if (['yes', 'no', 'Y', 'n'].includes(answer)) {
