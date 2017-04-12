@@ -3,4 +3,5 @@ yarn-error.log
 /node_modules
 /dist/debug/
 /dist/test/
+/dist/preview/
 /dist/release/
