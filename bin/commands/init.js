@@ -1,3 +1,8 @@
+/**
+ * 生成小程序脚手架代码
+ * command: create-wxapp init
+ */
+
 const co = require('co');
 const mkdirp = require('mkdirp');
 const promisify = require('es6-promisify');
@@ -6,7 +11,6 @@ const { readdir } = require('fs');
 const { join } = require('path');
 const { ncp } = require('ncp2');
 
-// `create-wxapp` init
 exports.run = co.wrap(function *(argv, clt) {
 	try {
 		// 小程序项目名称
