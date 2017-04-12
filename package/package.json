@@ -2,7 +2,7 @@
 	"scripts": {
 		"start": "cd runner && gulp watch --target=debug --sourcemaps --env=local",
 		"build-debug": "cd runner && gulp build --target=debug --env=dev",
-		"build-test": "cd runner && gulp build --target=test --env=test",
+		"build-test": "cd runner && gulp build --target=test --minify --env=test",
 		"build-preview": "cd runner && gulp build --target=preview --minify --env=preview",
 		"build-release": "cd runner && gulp build --target=release --minify --env=production",
 		"clean": "npm run clean-debug && npm run clean-test && npm run clean-preview && npm run clean-release",
