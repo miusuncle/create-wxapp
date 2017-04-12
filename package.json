@@ -25,9 +25,11 @@
   "dependencies": {
     "clt": "^0.1.1",
     "co": "^4.6.0",
+    "colors": "^1.1.2",
     "es6-promisify": "^5.0.0",
     "mkdirp": "^0.5.1",
     "ncp2": "^2.1.0",
+    "request": "^2.81.0",
     "through2": "^2.0.3"
   }
 }
