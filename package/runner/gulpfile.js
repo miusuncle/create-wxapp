@@ -11,7 +11,10 @@ const config = require('./config');
 const buildSource = config.src;
 
 // 构建目标文件夹名
-const target = config.dist[argv.target] ? argv.target : 'debug';
+const target = (() => {
+	const target = [].concat(argv.target).pop();
+	return config.dist[target] ? target : 'debug';
+})();
 
 // 构建输出的绝对目录
 const buildTarget = config.dist[target];
