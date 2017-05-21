@@ -1,6 +1,6 @@
 {
 	"scripts": {
-		"start": "cd runner && gulp watch --target=debug --sourcemaps --env=local",
+		"dev": "cd runner && gulp build --target=debug --sourcemaps --env=local --watch",
 		"build-debug": "cd runner && gulp build --target=debug --env=dev",
 		"build-test": "cd runner && gulp build --target=test --minify --env=test",
 		"build-preview": "cd runner && gulp build --target=preview --minify --env=preview",

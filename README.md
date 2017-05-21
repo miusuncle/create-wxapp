@@ -20,7 +20,7 @@ $ npm i -d
 
 ## Commands
 
-- `npm start`
+- `npm run dev`
 - `npm run build-debug`
 - `npm run build-test`
 - `npm run build-preview`

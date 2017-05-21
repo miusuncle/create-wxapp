@@ -55,16 +55,20 @@ const replace = stream => (config.define[env] || []).reduce((ret, [search, repla
 	return ret.pipe($.replace(search, replacement, { skipBinary: true }));
 }, stream);
 
-gulp.task('watch', () => build(() => {
-	watchMode = true;
+gulp.task('build', done => {
+	if (!argv.watch) {
+		return build(done);
+	}
 
-	Object.keys(config.filesPattern).forEach(assets => {
-		const files = resolve(config.src, config.filesPattern[assets]);
-		$.watch(files, () => runSequence(`build:${assets}`));
+	build(() => {
+		watchMode = true;
+
+		Object.keys(config.filesPattern).forEach(assets => {
+			const files = resolve(config.src, config.filesPattern[assets]);
+			$.watch(files, () => runSequence(`build:${assets}`));
+		});
 	});
-}));
-
-gulp.task('build', build);
+});
 
 gulp.task('clean', done => {
 	const files = resolve(buildTarget, '**/*');
